@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Admin | M G R</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--  logo -->
+
+    <link rel="icon" type="image/png" href="/images/123123.png">
+
+    <!--Bootstrap CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!--Jquery CDN-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!--Bootstrap CDN-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!--Font Awesome CDN-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <link rel="stylesheet" href="/style.css" type="text/css">
+    <style>
+      .temparory{
+        height: 50vh;
+      }
+      html, body {
+        width: 100%;
+        height:100%;
+      }
+
+      body {
+          background: linear-gradient(-45deg, #e8d5cf, #e7eee3, #d9eff7, #afd7ce);
+          background-size: 400% 400%;
+          animation: gradient 15s ease infinite;
+      }
+
+      @keyframes gradient {
+          0% {
+              background-position: 0% 50%;
+          }
+          50% {
+              background-position: 100% 50%;
+          }
+          100% {
+              background-position: 0% 50%;
+          }
+      }
+    </style>
+
+    <script>
+      $(document).ready(function(){
+        $('#temp').addClass('temparory');
+        $("#insert").hide();
+        $("#update").hide();
+        $("#search").hide();
+        $("#delete").hide();
+
+        $("#insertB").click(function(){
+          $("#insert").fadeIn(500);
+          $("#update").hide();
+          $("#search").hide();
+          $("#delete").hide();
+          $('#temp').removeClass('temparory');
+        });
+        $("#updateB").click(function(){
+          $("#update").fadeIn(500);
+          $("#insert").hide();
+          $("#search").hide();
+          $("#delete").hide();
+          $('#temp').removeClass('temparory');
+        });
+        $("#searchB").click(function(){
+          $("#search").fadeIn(500);
+          $("#insert").hide();
+          $("#update").hide();
+          $("#delete").hide();
+          $('#temp').removeClass('temparory');
+        });
+        $("#deleteB").click(function(){
+          $("#delete").fadeIn(500);
+          $("#insert").hide();
+          $("#update").hide();
+          $("#search").hide();
+          $('#temp').removeClass('temparory');
+        });
+
+
+      });
+    </script>
+      
+</head>
+  <body>
+   <!--
+            !     Nav Bar
+        -->
+
+
+    <nav class="navbar container-fluid navbar-default" style=" padding: 5px 3%; background-color:#080606 ; ">
+      <div class="navbar-header">
+        <h1 id="h11"><a href="/" ><i class="fas fa-infinity" style="font-size: 40px;"></i> M G R</a></h1>
+      </div>
+      <ul id="unorder" class="nav navbar-nav navbar-right " style="font-size:20px;color: white; ">
+        <li><a href="/" >Home</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li> <a href="/admin" >Admin</a></li>
+      </ul>
+    </nav> 
+
+
+    <!--
+        !     BackEnd
+    -->
+    <div class="container-fluid text-center ">
+        <div class="row" style="padding:30px 0;">
+          <a href="/admin"><button style="margin: 20px; padding:7px 10px; font-size: 18px;" id="deleteB" class="btn btn-primary">List Movie</button></a>
+          <a href="/insert"><button style="margin: 20px; padding:7px 10px; font-size: 18px;" id="insertB" class="btn btn-success">Insert Movie</button></a>
+          <a href="/search"><button style="margin: 20px; padding:7px 10px; font-size: 18px;" id="searchB" class="btn btn-default">Search Movie</button></a>
+        </div>
+    </div>    
+
+    <!--
+        !     Movie list    ! 
+    --> 
+
+    <div id="#temp"></div>
+    <% if(action == 'movie') { %> 
+    <div class="container-fluid" style="margin:0 50px ;">
+      <h1 class="text-center" style="padding:10px 0 30px 0 ;"><%= title %></h1>
+      <table class="table table-responsive" style="margin: 50px 0 300px 0;">
+        <tr class="text-center" style="font-size: 18px;">
+          <th>MID</th>
+          <th>Title</th>
+          <th>Year</th>
+          <th>Runtime</th>
+          <th>Genre</th>
+          <th>Director</th>
+          <th>Writer</th>
+          <th>Actor</th>
+          <th>Metascore</th>
+          <th>IMDB Rating</th>
+          <th>Action</th>
+        </tr>
+        <%
+        if(catchdata.length > 0)
+        {
+          catchdata.forEach(function(data){
+        %>
+        <tr class="text-justify" style="font-size: 15px;">
+          <td><%= data.mid %></td>
+          <td><%= data.title %></td>
+          <td><%= data.year %></td>
+          <td><%= data.runtime %></td>
+          <td><%= data.genre %></td>
+          <td><%= data.director %></td>
+          <td><%= data.writer %></td>
+          <td><%= data.actor %></td>
+          <td><%= data.metascore %></td>
+          <td><%= data.imdb %></td>
+          <td>
+            <a href="/edit/<%= data.mid %>"><button class="btn-info">Edit</button></a> 
+            <button onclick="if(confirm('Do you want to delete <%= data.mid %> MID ')){ document.location.href='/delete/<%= data.mid %>'}else{document.location.href='/admin'}" class="btn-danger">Delete</button>
+          </td>
+        </tr>
+        <%  }); } else { %>
+          <tr class="text-center" style="font-size: 15px;">
+            <td colspan="11">No movies..  found Add movies</td>
+        </tr>
+        <% } %>
+
+      </table>
+    </div>
+
+     <!--
+        !     Insert    ! 
+    --> 
+     <%}else if(action == 'list') { %> 
+    <div class="container" id="#insert" style="height:80vh;">
+        <h1 class="text-center" style="padding:10px 0 30px 0 ;"><%= title %></h1>
+        <form action="/add-movie" method="post">
+          <div class="row" style="padding:10px 0 ;">
+            <div class="col-md-4">
+              <div class="mb-3">
+                  <label style="font-size:18px;">MID</label>
+                  <input type="number" class="form-control"  name="mid" id="mid" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                  <label style="font-size:18px;">Title</label>
+                  <input type="text" class="form-control"  name="title" id="title" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Year</label>
+                <input type="number"  class="form-control"  name="year" id="year" required/>
+              </div>
+            </div>
+          </div>
+          <div class="row" style="padding:10px 0 ;">
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Runtime</label>
+                <input type="text" class="form-control"  name="runtime" id="runtime" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Genre</label>
+                <input type="text"  class="form-control"  name="genre" id="genre" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Director</label>
+                <input type="text" class="form-control"  name="director" id="director" required/>
+              </div>
+            </div>
+
+          </div>
+          <div class="row" style="padding:10px 0 ;">
+
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Writer</label>
+                <input type="text"  class="form-control"  name="writer" id="writer" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Actors</label>
+                <input type="text" class="form-control"  name="actor" id="actor" required/>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Meta Score</label>
+                <input type="number"  class="form-control"  name="metascore" id="metascore" required/>
+              </div>
+            </div>
+
+          </div>
+          <div class="row" style="padding:10px 0 ;">
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label style="font-size:18px;">Imdb Rating</label>
+                <input type="number"  class="form-control"  name="imdb" id="imdb" required/>
+              </div>
+            </div>
+          </div>
+          <div class="row text-center"style="padding: 20px 0; " >
+            <a href="/insert"><input style="font-size:18px;"  type="submit" id="insertMovie"  class="btn btn-default" value="Insert"></a>
+          </div>
+        </form>
+    </div>
+
+    <!--
+        !     Search    ! 
+    --> 
+     <% } else if(action == 'search') { %> 
+    <div class="container" id="#search" style="height:150vh;">
+      <h1 class="text-center" style="padding:10px 0 30px 0 ;"><%= title %></h1>
+
+      <div class="row">
+        <form method="POST" action="/search/mid">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by MID"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" value="Search">
+          </div>
+        </form>
+        <form method="POST" action="/search/title">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by Title"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" value="Search">
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <form method="POST" action="/search/year">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by Year"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" value="Search">
+          </div>
+        </form>
+        <form method="POST" action="/search/metascore">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by Metascore Above"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" max="100" value="Search">
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <form method="POST" action="/search/genre">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by Genre"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" value="Search">
+          </div>
+        </form>
+        <form method="POST" action="/search/director">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by Director"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" value="Search">
+          </div>
+        </form>
+      </div>
+
+      <div class="row">
+        <form method="POST" action="/search/imdb">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by IMDB Rating Above"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" max="10" value="Search">
+          </div>
+        </form>
+        <form method="POST" action="/search/actor">
+          <div class="col-sm-6" style="padding: 10px 20px;">
+            <input type="text" name="search" class="form-control" placeholder="Find by Actor"/>
+            <input style="font-size:15px; margin-top: 10px;"  type="submit" name="searchMovie" class="btn btn-default" value="Search">
+          </div>
+        </form>
+      </div>
+      
+
+      <div class="row">
+        <h2 class="text-center" style="padding:30px 0 30px 0 ;"><%= title2 %></h2>
+        <table class="table table-responsive" style="margin-top: 30px;">
+          <tr class="text-center" style="font-size: 18px;">
+            <th>MID</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Runtime</th>
+            <th>Genre</th>
+            <th>Director</th>
+            <th>Writer</th>
+            <th>Actor</th>
+            <th>Metascore</th>
+            <th>IMDB Rating</th>
+          </tr>
+          <%
+          if(catchdata.length > 0)
+          {
+            catchdata.forEach(function(data){
+          %>
+          <tr class="text-justify" style="font-size: 15px; margin-bottom: 100px;">
+            <td><%= data.mid %></td>
+            <td><%= data.title %></td>
+            <td><%= data.year %></td>
+            <td><%= data.runtime %></td>
+            <td><%= data.genre %></td>
+            <td><%= data.director %></td>
+            <td><%= data.writer %></td>
+            <td><%= data.actor %></td>
+            <td><%= data.metascore %></td>
+            <td><%= data.imdb %></td>
+          </tr>
+
+          <%  }); } else { %>
+            <tr class="text-center" style="font-size: 17px;">
+              <td style=" margin-top: 40px;" colspan="10">No matched movies..</td>
+          </tr>
+          <% } %>
+
+        </table>
+      </div>
+    </div>
+
+
+    <!--
+        !     Edit    ! 
+    --> 
+
+    <% } else if(action == 'edit') { %>
+    <div class="container" id="#update" style="height:80vh;">
+      <h1 class="text-center" style="padding:10px 0 30px 0 ;"><%= title %></h1>
+      <form action="/editing/<%= tempId %>" method="post">
+        <div class="row" style="padding:10px 0 ;">
+          <div class="col-md-4">
+            <div class="mb-3">
+                <label style="font-size:18px;">MID</label>
+                <input type="text" class="form-control"  value="<%= catchdata.mid %>" readonly  required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+                <label style="font-size:18px;">Title</label>
+                <input type="text" class="form-control"  name="title" id="title" value="<%= catchdata.title %>" required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Year</label>
+              <input type="text"  class="form-control"  name="year" id="year" value="<%= catchdata.year %>" required/>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="padding:10px 0 ;">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Runtime</label>
+              <input type="text" class="form-control"  name="runtime" id="runtime" value="<%= catchdata.runtime %>" required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Genre</label>
+              <input type="text"  class="form-control"  name="genre" id="genre" value="<%= catchdata.genre%>" required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Director</label>
+              <input type="text" class="form-control"  name="director" id="director" value="<%= catchdata.director %>" required/>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="padding:10px 0 ;">
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Writer</label>
+              <input type="text"  class="form-control"  name="writer" id="writer" value="<%= catchdata.writer %>" required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Actors</label>
+              <input type="text" class="form-control"  name="actor" id="actor" value="<%= catchdata.actor %>" required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Meta Score</label>
+              <input type="text"  class="form-control"  name="metascore" id="metascore" value="<%= catchdata.metascore %>" required/>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="mb-3">
+              <label style="font-size:18px;">Imdb Rating</label>
+              <input type="text"  class="form-control"  name="imdb" id="imdb" value="<%= catchdata.imdb %>" required/>
+            </div>
+          </div>
+        </div>
+        <div class="row text-center"style="padding: 20px 0; " >
+          <input style="font-size:18px;"  type="submit"  class="btn btn-default" value="Update">
+        </div>
+      </form>
+    </div>
+
+    <% }  %>
+
+
+
+    <!--
+        !     Footer    ! 
+    -->
+    <footer>
+      <div class="container-fluid" style="height:28vh; background-color: #000000;">
+        <div class="row text-center" style="margin-top:4vh;">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://www.facebook.com/profile.php?id=100061253912933" target="_blank"><i class="fab fa-facebook-f"></i></a></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://twitter.com/M_Ahmed_Anwer"target="_blank"><i class="fab fa-twitter"></i></a></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://www.instagram.com/m_ahmed.anwer/"target="_blank"><i class="fab fa-instagram"></i></a></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://github.com/m-ahmed-anwer" target="_blank"><i class="fab fa-github"></i></a></div>
+          <div id="textfoot" class="col-sm-12">Copyright <i class="fa-regular fa-copyright"></i> 2022, MGR Inc. <br>All Rights Reserved <br> M.A.Ahmed</div>
+        </div>
+      </div>
+    </footer>
+
+  </body>
+</html>

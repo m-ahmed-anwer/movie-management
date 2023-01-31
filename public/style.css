@@ -1,0 +1,255 @@
+
+#h1first{
+  padding-top: 10rem;
+  font-family: sans-serif;
+  font-weight:900 ;
+  font-size: 70px; 
+  background-image: url("images/giphy.gif");
+  background-size:cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent ;
+  line-height: 1.2;
+}
+#image1{
+  opacity: 0.15;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}
+#h11 a{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 36px;
+  background: -webkit-linear-gradient(#8486a1, #f5eeeb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+#unorder a{
+  font-size: 18px;
+  font-family:Arial, Helvetica, sans-serif;
+  color: white;
+  align-items: center;
+  padding-top: 3rem;
+
+}
+#unorder i{
+  font-size: 30px;
+  margin-top: -0.4rem;
+}  
+#btn1{
+  background-image: linear-gradient(to Right, #333741 0%, #000000  51%, #404658  100%);
+  padding: 10px 25px;
+  border:1px solid black;
+  background-size: 300% auto;
+  color: white;            
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 184%;
+  font-size: 22px;
+  transition: 0.5s;
+}
+#btn1:hover {
+  background-position: 150px ;
+}
+.browse{
+  padding-top: 40px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 40px;
+}
+#h1Text{
+  margin-top: -180px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+  color: whitesmoke;
+}
+#h2Text{
+  margin-top: -10px;
+  font-family: sans-serif;
+  line-height: 1.6;
+  font-size: 50px;
+  color: white;
+}
+#rowMgr{
+  height:45vh;
+}
+#plantext{
+  font-size: 14px;
+  color: #4566ee;
+  margin-top: -10vh;
+}
+.fontAws{
+  font-size: 25px;
+  text-decoration: none;
+  color: white;
+}
+.fontAws:hover{
+  color: #d6d6e0;
+}
+#textfoot{
+  margin-top: 5vh;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #d6d6e0;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+#constent{
+  background-color: white;
+  font-family: "Clarkson",Helvetica,sans-serif;
+  margin: 20px;
+  box-sizing: border-box;
+  float: left;
+  text-align: center;
+  border-radius:20px 20px ;
+  padding-top: 15px;
+  transition: .4s;
+  box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+}
+
+#constent:hover{
+    box-shadow: 0px 6px 10px  rgb(36, 46, 68);
+}
+
+
+#gallery{
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3%;
+  height: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+  justify-content: center;
+  align-items: center;
+}
+
+.product{
+  height:100%;
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.btnn{
+  text-align: center;
+  font-size: 25px;
+  color: #ffffff;
+  background-color: #000000;
+  width: 100%;
+  padding: 15px;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+  margin-top: 5px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: .4s;
+}
+
+.btnn:hover{
+  background-color:rgb(0, 0, 0,0.9) ;
+}
+.conttd{
+  font-size: 17px;
+}
+#font{
+  font-size: 30px;
+}
+.mapouter{
+  padding-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+#box{
+  border-radius:10px 100px  10px 100px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#box h1{
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  text-transform: uppercase;
+  font-size: 45px;
+}
+
+#box input[type = "password"]{
+  width: 170px;
+}
+#box input[type = "email"]{
+  width: 240px;
+}
+
+#box input[type = "email"],
+#box input[type = "password"]{
+  align-items: center;
+  font-size: 16px;
+  background: none;
+  display: block;
+  margin: 25px auto;
+  text-align: center;
+  border: 2px solid #000000;
+  padding: 14px 10px;
+  border-radius: 3px;
+  outline: none;
+  color: rgb(0, 0, 0);
+  transition:  .3s;
+}
+#box input[type = "password"]:focus{
+  border: 2px solid  #3366CC;
+  width: 200px;
+  color: #000000;
+  border-radius: 10px;
+}
+#box input[type = "email"]:focus{
+  border: 2px solid  #3366CC;
+  width: 290px;
+  color: #000000;
+  border-radius: 10px;
+}
+#box input[type = "submit"]{
+  border:0;
+  background-color: black;
+  display: block;
+  margin: 30px auto;
+  text-align: center;
+  border: 2px solid #000000;
+  padding: 3px 20px ;
+  color: rgb(255, 255, 255);
+  border-radius: 2px;
+  transition: .4s;
+  cursor: pointer; 
+  font-size: 23px;
+}
+#box input[type = "submit"]:hover{
+  color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  box-shadow: 10px 8px #000000;
+}
+
+
+
+
+@media (max-width:991px){
+  #btn1{
+      margin-top: 10%;
+  }
+  #rowMgr{
+    height: 80vh;
+  }
+  .lottie{
+    padding-left:auto ;
+    padding-right: auto;
+  }
+  #h1Text{
+    margin-top: 50px;
+  }
+  #plantext{
+    margin:0;
+  }
+}

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <title>MGR | Watch Super Hit Movies</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--  logo -->
+
+      <link rel="icon" type="image/png" href="/images/123123.png">
+
+      <!--Bootstrap CDN-->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <!--Jquery CDN-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <!--Bootstrap Script CDN-->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+      <!--Font Awesome CDN-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+      <link rel="stylesheet" href="/style.css" type="text/css">
+      
+      <script>
+        $(document).ready(function(){
+          $("#image1").hide();
+          $("#image1").fadeIn(500);
+        });
+        
+        $(document).ready(function(){
+          $("#btn1").click(function(){
+            $("#gallery").hide();
+            $("#gallery").fadeIn(550);
+          });
+        });
+    
+      </script>
+      
+  </head>
+  <body> 
+
+      <!--
+          !     Navigation Bar    ! 
+      -->
+    <div class="background" style="background-color:#1b1b1b ;" >
+      <nav class="navbar container-fluid navbar-default" style=" padding: 5px 3%; background-color:#080606 ; ">
+        <div class="navbar-header">
+          <h1 id="h11"><a href="/" ><i class="fas fa-infinity" style="font-size: 40px;"></i> M G R</a></h1>
+        </div>
+        <ul id="unorder" class="nav navbar-nav navbar-right " style="font-size:20px;color: white; ">
+          <li><a href="/" >Home</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li> <a href="/admin" >Admin</a></li>
+        </ul>
+        
+      </nav> 
+        
+      <!--
+          !     Home page     !
+      -->
+      <div class="con" style="background-color:#1b1b1b;" >
+          <div class="container-fluid">
+              <div class="col-sm-12">
+                  <img src="images/image1.jpg" id="image1">
+              </div>
+          </div>
+        <div class="container">
+          <div class="row" style="padding-bottom: 15% ;">
+            <div class="col-md-9 ">
+              <h1 id="h1first">Get Endless Entertainment from MGR with Unlimited Joy and Happiness.</h1>
+            </div>
+            <div class="col-md-1 "> </div>
+            <div class="col-md-2">
+              <a style="text-decoration:none;color:white;" href="#movies"><button type="button" id="btn1" class="btn" >Movies </button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--
+          !     MGR    ! 
+      -->
+
+    <div class="container-fluid" style="background-color:#1b1b1b;">
+      <div class="row" id="rowMgr" >
+        <div id="plantext" class="col-sm-8"><p class="text-center">INCLUDED IN ALL PLANS</p> </div>
+        <div class="col-sm-8"><h1 id="h2Text" class="text-center">MGR Has a New Home </h1> </div>
+        <div class="col-sm-4">
+          <div class="lottie">
+            <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+            <lottie-player src="https://assets2.lottiefiles.com/private_files/lf30_gnukie4i.json"  background="transparent"  speed="1"  style="width: 300px; height: auto;"  loop  autoplay></lottie-player>  
+          </div>
+        </div>
+        <div class="col-sm-2"></div>
+        <div class="col-sm-4">
+          <h5 class="text-center" id="h1Text">Your favorite movies are streaming on MGR. Browse more to watch your movies and so much more from MGR - all in one place. Find Your Favorite Hollywood,Bollywood Movies on MGR.</h5>
+        </div>
+
+      </div>
+    </div>
+
+
+     <!--
+          !    Browse Movies    ! 
+      -->
+
+    <div class="container-fluid">
+      <div class="row"><h1 id="movies" class="browse" >Browse All Movies</h1></div>
+      <div class="row" id="gallery">
+
+        <!--Movies-->
+
+        <div class="col-sm-3" id="constent">
+          <img src="images/1.jpeg" class="product" >
+
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/2.jpeg" class="product" >
+
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/3.jpeg" class="product" >
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/4.jpeg" class="product" >
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/5.jpeg" class="product" >
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/6.jpeg" class="product" >
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+      </div>
+
+
+      <!--Hided row-->
+
+      <div class="row" id="gallery">
+        <div class="col-sm-3" id="constent">
+          <img src="images/7.jpeg" class="product" >
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/8.jpeg" class="product" >
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/9.jpeg" class="product" >
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/10.jpeg" class="product">
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+        <div class="col-sm-3" id="constent">
+          <img src="images/11.jpeg" class="product">
+             
+            <a href="" >
+                <button class="btnn">View</button>
+            </a>
+        </div>
+      </div>
+    </div>
+
+    
+
+     <!--
+          !     Footer    ! 
+      -->
+      
+      <div class="container-fluid" style="height:28vh; background-color: #000000;">
+        <div class="row text-center" style="margin-top:4vh;">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://www.facebook.com/profile.php?id=100061253912933" target="_blank"><i class="fab fa-facebook-f"></i></a></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://twitter.com/M_Ahmed_Anwer"target="_blank"><i class="fab fa-twitter"></i></a></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://www.instagram.com/m_ahmed.anwer/"target="_blank"><i class="fab fa-instagram"></i></a></div>
+          <div class="col-sm-1"><a class="fontAws" href="https://github.com/m-ahmed-anwer" target="_blank"><i class="fab fa-github"></i></a></div>
+          <div id="textfoot" class="col-sm-12">Copyright <i class="fa-regular fa-copyright"></i> 2022, MGR Inc. <br>All Rights Reserved <br> M.A.Ahmed</div>
+        </div>
+      </div>
+
+  </body>
+</html>
